@@ -1,0 +1,703 @@
+/* App-specific styles */
+.app-container {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Header Styles - Modern Professional Design */
+.app-header {
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #111827;
+  width: 100%;
+}
+
+.header-title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: #111827;
+}
+
+.header-subtitle {
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Chat Window Styles */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #ffffff;
+}
+
+.chat-header {
+  padding: 24px 28px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.chat-header-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.02em;
+  font-family: 'Inter', sans-serif;
+}
+
+.chat-header-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.messages-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 28px;
+  background: #f9fafb;
+}
+
+/* Empty Chat State */
+.empty-chat-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 40px;
+}
+
+.empty-chat-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.empty-chat-icon svg {
+  font-size: 32px;
+  color: #9ca3af;
+}
+
+.empty-chat-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 8px;
+  font-family: 'Inter', sans-serif;
+}
+
+.empty-chat-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 24px;
+  font-family: 'Inter', sans-serif;
+}
+
+.suggestion-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Message Styles */
+.message-item {
+  width: 100%;
+}
+
+.message-avatar {
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.message-avatar.user {
+  background: #2563eb;
+}
+
+.message-avatar.assistant {
+  background: #059669;
+}
+
+.message-bubble-wrapper {
+  position: relative;
+}
+
+.message-bubble {
+  padding: 14px 18px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  word-break: break-word;
+  transition: all 0.2s ease;
+  position: relative;
+  max-width: 100%;
+}
+
+.message-bubble:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.message-bubble.user {
+  background: #2563eb;
+  color: white;
+}
+
+.message-bubble.assistant {
+  background: #ffffff;
+  color: #111827;
+  border: 1px solid #e5e7eb;
+}
+
+.message-text {
+  font-size: 14px;
+  line-height: 1.6;
+  font-family: 'Inter', sans-serif;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.message-text.user {
+  color: #ffffff;
+}
+
+.message-text.assistant {
+  color: #111827;
+}
+
+.message-timestamp {
+  font-size: 11px;
+  opacity: 0.7;
+  display: block;
+  margin-top: 4px;
+  font-family: 'Inter', sans-serif;
+}
+
+.loading-message {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  animation: fadeIn 0.3s ease;
+}
+
+.loading-text {
+  margin-left: 8px;
+  color: #6b7280;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  margin: 12px 0;
+}
+
+/* Input Area */
+.input-container {
+  padding: 20px 28px;
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+}
+
+.chat-input {
+  flex: 1;
+  border-radius: 10px 0 0 10px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  border: 1px solid #d1d5db !important;
+  transition: all 0.2s ease !important;
+}
+
+.chat-input:focus,
+.chat-input:hover {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1) !important;
+}
+
+.send-button {
+  border-radius: 0 10px 10px 0 !important;
+  height: auto !important;
+  padding: 4px 24px !important;
+  background: #2563eb !important;
+  border: none !important;
+  font-weight: 500 !important;
+  font-family: 'Inter', sans-serif !important;
+  transition: all 0.2s ease !important;
+}
+
+.send-button:hover:not(:disabled) {
+  background: #1d4ed8 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
+}
+
+.send-button:disabled {
+  opacity: 0.5;
+  background: #9ca3af !important;
+}
+
+/* RFP List Styles - Modern Professional Design */
+.rfp-list-container {
+  padding: 0;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.rfp-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0 4px;
+}
+
+.rfp-list-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 8px;
+  letter-spacing: -0.03em;
+  font-family: 'Inter', sans-serif;
+}
+
+.rfp-list-subtitle {
+  font-size: 15px;
+  color: #6b7280;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+}
+
+.rfp-empty-state {
+  text-align: center;
+  padding: 100px 20px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.rfp-cards-grid {
+  margin-top: 0;
+}
+
+.rfp-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  background: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+}
+
+.rfp-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12) !important;
+  border-color: #d1d5db !important;
+}
+
+.rfp-card .ant-card-body {
+  padding: 24px !important;
+}
+
+.rfp-card .ant-statistic-title {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.rfp-card .ant-statistic-content {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Product Cards Styles */
+.products-container {
+  padding: 32px;
+  background: #f8fafc;
+  min-height: 100%;
+}
+
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.products-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+  font-family: 'Inter', sans-serif;
+}
+
+.products-subtitle {
+  font-size: 14px;
+  color: #64748b;
+  font-family: 'Inter', sans-serif;
+}
+
+.product-search {
+  border-radius: 8px;
+}
+
+.product-search .ant-input {
+  font-family: 'Inter', sans-serif;
+}
+
+.loading-state {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.loading-text {
+  display: block;
+  margin-top: 16px;
+  color: #64748b;
+  font-family: 'Inter', sans-serif;
+}
+
+.empty-state {
+  margin-top: 60px;
+}
+
+.empty-description {
+  color: #94a3b8;
+  font-family: 'Inter', sans-serif;
+}
+
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.no-results-text {
+  color: #64748b;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+}
+
+.products-grid {
+  margin-top: 8px;
+}
+
+.product-card {
+  height: 100%;
+  border-radius: 12px !important;
+  overflow: hidden;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+  transition: all 0.3s ease !important;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+.product-image-container {
+  height: 200px;
+  overflow: hidden;
+  background: #f8fafc;
+  position: relative;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-image-container:hover .product-image {
+  transform: scale(1.1);
+}
+
+.product-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.product-image-container:hover .product-overlay {
+  opacity: 1;
+}
+
+.view-details-button {
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+}
+
+.product-image-placeholder {
+  height: 200px;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.product-image-placeholder svg {
+  font-size: 48px;
+  color: #cbd5e1;
+}
+
+.product-name {
+  font-size: 16px;
+  color: #1e293b;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.product-description {
+  margin-bottom: 12px;
+}
+
+.product-description-text {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 0;
+}
+
+.product-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.product-price {
+  display: flex;
+  align-items: center;
+  color: #667eea;
+}
+
+.price-text {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+}
+
+.product-category {
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* RFP Modal */
+.rfp-modal .ant-modal-content {
+  border-radius: 12px;
+  font-family: 'Inter', sans-serif;
+}
+
+.rfp-modal .ant-modal-header {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 20px 24px;
+  border-radius: 12px 12px 0 0;
+}
+
+.rfp-modal .ant-modal-body {
+  padding: 24px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.rfp-modal .ant-descriptions-item-label {
+  font-weight: 600;
+  color: #111827;
+}
+
+.rfp-modal .ant-table {
+  font-family: 'Inter', sans-serif;
+}
+
+.rfp-modal .ant-table-thead > tr > th {
+  background: #f9fafb;
+  font-weight: 600;
+  color: #111827;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.rfp-modal .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.rfp-modal .ant-modal-footer {
+  border-top: 1px solid #e5e7eb;
+  padding: 16px 24px;
+}
+
+/* Product Modal */
+.product-modal .ant-modal-header {
+  border-bottom: 1px solid #e2e8f0;
+  padding: 20px 24px;
+}
+
+.product-modal .ant-modal-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+}
+
+.product-detail {
+  padding: 8px 0;
+}
+
+.product-detail-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.product-detail-content {
+  font-family: 'Inter', sans-serif;
+}
+
+.product-detail-description {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #475569;
+  margin-bottom: 24px;
+}
+
+.product-detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.product-detail-price,
+.product-detail-category {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.price-label,
+.category-label {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.price-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: #667eea;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .products-header {
+    flex-direction: column;
+  }
+
+  .product-search {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .message-bubble {
+    max-width: 85%;
+  }
+
+  .chat-header {
+    padding: 16px;
+  }
+
+  .products-container {
+    padding: 20px;
+  }
+
+  .rfp-modal {
+    width: 95% !important;
+    max-width: 95% !important;
+  }
+
+  .rfp-modal .ant-modal-body {
+    padding: 16px;
+  }
+
+  .rfp-list-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .rfp-list-title {
+    font-size: 24px;
+  }
+}
