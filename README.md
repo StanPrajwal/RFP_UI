@@ -1,403 +1,303 @@
-Below is a **complete, production-ready README.md** for your **Vite + React + TypeScript UI**, fully aligned with the API specification you provided.
-It includes:
+# 🤖 AI-Powered RFP Management System
 
-✔ Setup
-✔ Folder structure
-✔ API integration flow
-✔ User guide
-✔ Sequence diagrams
-✔ Screenshots placeholders
-✔ Developer notes
+A modern, AI-powered Request for Proposal (RFP) management application built with React, TypeScript, and Ant Design. This application streamlines the procurement process by allowing users to generate structured RFPs from natural language descriptions, manage vendors, compare proposals, and make data-driven procurement decisions.
 
-You can **copy–paste this as README.md** into your repo.
+## ✨ Features
 
----
+- **AI-Powered RFP Generation**: Convert natural language procurement descriptions into structured RFPs
+- **RFP Management**: Create, view, and manage multiple RFPs in one place
+- **Vendor Management**: Assign vendors to RFPs and send invitations
+- **Proposal Comparison**: AI-powered comparison of vendor proposals with scoring and recommendations
+- **Modern UI/UX**: Clean, professional interface built with Ant Design
+- **Real-time Updates**: React Query for efficient data fetching and caching
+- **Responsive Design**: Works seamlessly across desktop and mobile devices
 
-# 📡 **AI-Powered RFP Management System – Frontend (Vite + React + TypeScript)**
+## 🛠️ Tech Stack
 
-This is the **frontend UI** for the AI-powered RFP Management System.
-It allows users to **create RFPs from natural language**, **manage vendors**, **send RFPs**, and **view proposals**, interacting with the backend through REST APIs.
+- **Frontend Framework**: React 19.2.0
+- **Language**: TypeScript 5.9.3
+- **Build Tool**: Vite 5.1.6
+- **UI Library**: Ant Design 6.0.1
+- **State Management**: TanStack React Query 5.90.12
+- **HTTP Client**: Axios 1.13.2
+- **Routing**: React Router DOM 6.26.2
 
-Backend reference used for UI integration:
+## 📋 Prerequisites
 
+Before you begin, ensure you have the following installed:
 
----
+- **Node.js**: Version 18.x or higher (Node.js 18.19.0+ recommended)
+- **npm**: Version 9.x or higher (comes with Node.js)
+- **Backend API**: The application requires a backend API running on `http://localhost:8080` (or configure a different URL)
 
-# 🚀 **1. Project Overview**
+## 🚀 Installation
 
-This frontend provides:
+### Step 1: Clone the Repository
 
-### ✅ Chat-driven RFP creation
-
-User types natural language → UI calls `/rfp/generate-rfp` → AI converts to structured RFP.
-
-### ✅ RFP management dashboard
-
-List all RFPs, view details, save new RFPs.
-
-### ✅ Vendor assignment
-
-Fetch vendors → assign to RFP → send to backend.
-
-### ✅ Sending RFP to vendors
-
-UI triggers email dispatch via backend `/rfp/:id/send`.
-
-### ✅ Clean React + TypeScript architecture
-
-Using hooks, services, reusable components, error handling.
-
----
-
-# 🛠️ **2. Tech Stack**
-
-| Layer            | Technology                       |
-| ---------------- | -------------------------------- |
-| Build Tool       | **Vite**                         |
-| UI Library       | **React 18**                     |
-| Language         | **TypeScript**                   |
-| HTTP             | **Axios**                        |
-| State & Querying | React Query / Zustand (if added) |
-| Styling          | Tailwind / CSS Modules           |
-| Routing          | React Router v6                  |
-
----
-
-# 📦 **3. Folder Structure**
-
-```
-frontend/
-│
-├── src/
-│   ├── components/
-│   │   ├── ChatInput.tsx
-│   │   ├── RfpCard.tsx
-│   │   ├── VendorSelector.tsx
-│   │   └── Loader.tsx
-│   │
-│   ├── pages/
-│   │   ├── ChatPage.tsx
-│   │   ├── RfpListPage.tsx
-│   │   ├── RfpDetailPage.tsx
-│   │   └── NotFound.tsx
-│   │
-│   ├── services/
-│   │   ├── rfp.api.ts
-│   │   └── vendor.api.ts
-│   │
-│   ├── hooks/
-│   │   └── useRfp.ts
-│   │
-│   ├── types/
-│   │   ├── Rfp.ts
-│   │   └── Vendor.ts
-│   │
-│   ├── utils/
-│   │   └── axios.ts
-│   │
-│   ├── App.tsx
-│   ├── main.tsx
-│   └── index.css
-│
-├── .env
-├── package.json
-└── README.md
+```bash
+git clone https://github.com/StanPrajwal/RFP_UI
+cd RFP_UI
 ```
 
----
+### Step 2: Install Dependencies
 
-# ⚙️ **4. Setup Instructions**
-
-## 4.1 Prerequisites
-
-| Requirement    | Version                            |
-| -------------- | ---------------------------------- |
-| Node.js        | **18+**                            |
-| npm / yarn     | Any                                |
-| Backend        | Running on `http://localhost:8080` |
-| API must match | The API spec above                 |
-
----
-
-## 4.2 Installation
-
-```sh
-git clone <repo-url>
-cd frontend
+```bash
 npm install
 ```
 
-(or yarn/pnpm as preferred)
+This will install all required dependencies listed in `package.json`.
 
----
+### Step 3: Configure Environment Variables (Optional)
 
-## 4.3 Configure Environment Variables
+Create a `.env` file in the root directory if you need to customize the API base URL:
 
-Create `.env` in root:
-
-```
+```env
 VITE_API_BASE_URL=http://localhost:8080
 ```
 
----
+**Note**: If no `.env` file is provided, the application defaults to `http://localhost:8080`.
 
-## 4.4 Start App
+## ⚙️ Configuration
 
-```sh
+### API Configuration
+
+The API base URL is configured in `src/config/axios.ts`. You can modify it in two ways:
+
+1. **Environment Variable**: Set `VITE_API_BASE_URL` in your `.env` file
+2. **Default**: The application defaults to `http://localhost:8080`
+
+### Authentication
+
+The application supports Bearer token authentication. Tokens are stored in `localStorage` under the key `authToken`. The Axios interceptor automatically adds the token to all requests.
+
+## 🏃 Running the Application
+
+### Development Mode
+
+Start the development server:
+
+```bash
 npm run dev
 ```
 
-UI runs at:
+The application will be available at `http://localhost:5173` (or the next available port).
 
-👉 **[http://localhost:5173](http://localhost:5173)**
+### Build for Production
 
----
-
-# 🔌 **5. API Integration Layer**
-
-### Axios Base Config — `src/config/axios.ts`
-
-```ts
-import axios from "axios";
-
-export const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL,
-  headers: { "Content-Type": "application/json" }
-});
-```
-
----
-
-# 🧩 **6. API Service Files**
-
-## 6.1 RFP API — `rfp.api.ts`
-
-```ts
-import { api } from "../utils/axios";
-
-export const generateRfp = (payload: { description: string }) =>
-  api.post("/rfp/generate-rfp", payload);
-
-export const createRfp = (payload: any) =>
-  api.post("/rfp/create", payload);
-
-export const fetchAllRfp = () =>
-  api.get("/rfp/fetch-all-rfp");
-
-export const assignVendors = (rfpId: string, vendorIds: string[]) =>
-  api.post(`/rfp/${rfpId}/vendors`, { vendorIds });
-
-export const sendRfp = (rfpId: string, vendorIds: string[]) =>
-  api.post(`/rfp/${rfpId}/send`, { vendorIds });
-```
-
----
-
-## 6.2 Vendor API — `vendor.api.ts`
-
-```ts
-import { api } from "../utils/axios";
-
-export const fetchVendors = () =>
-  api.get("/vendor/fetch-vendors");
-```
-
----
-
-# 🎨 **7. Pages & UI Behavior**
-
----
-
-## 7.1 Chat Page (`/`)
-
-### User Flow:
-
-```
-User types message → Click Send
- ↓
-POST /rfp/generate-rfp
- ↓
-Show structured RFP card on right side
- ↓
-Enable “Save RFP” button
-```
-
-### UI Example:
-
-```tsx
-const handleSend = async () => {
-  const res = await generateRfp({ description: input });
-  setGeneratedRfp(res.data.structuredRfp);
-};
-```
-
----
-
-## 7.2 RFP List Page (`/rfp`)
-
-### Behavior:
-
-* Fetch all RFPs on mount
-* Display table/grid
-* Each card links to `/rfp/:id`
-
-```tsx
-useEffect(() => {
-  fetchAllRfp().then(res => setList(res.data.data));
-}, []);
-```
-
----
-
-## 7.3 RFP Detail Page (`/rfp/:id`)
-
-### Buttons:
-
-| Button                  | Behaviour                                          |
-| ----------------------- | -------------------------------------------------- |
-| **Assign Vendors**      | GET vendors → open modal → POST `/rfp/:id/vendors` |
-| **Send RFP**            | POST `/rfp/:id/send`                               |
-| **View Structured RFP** | Display JSON block                                 |
-
----
-
-# 📘 **8. Complete User Guide**
-
-## **🔹 Step 1 — Create RFP via Chat**
-
-1. Go to home page (`/`)
-2. Type procurement details in chat
-   Example:
-   *“I need 25 desktops and 10 projectors...”*
-3. System generates structured RFP
-4. Click **Save RFP**
-
----
-
-## **🔹 Step 2 — View All RFPs**
-
-Navigate to `/rfp`
-See all RFPs in table format.
-
----
-
-## **🔹 Step 3 — Assign Vendors**
-
-1. Open any RFP
-2. Click **Assign Vendors**
-3. Select vendors
-4. Save → API `/rfp/:id/vendors`
-
----
-
-## **🔹 Step 4 — Send RFP to Vendors**
-
-Click **Send RFP** →
-API `/rfp/:id/send` is triggered.
-
----
-
-# 🔄 **9. API Call Sequence Diagram**
-
-```
-[USER] 
-   ↓ types message
-[UI] 
-   POST /rfp/generate-rfp
-   ↓ shows structured RFP
-User clicks Save
-   ↓
-POST /rfp/create
-   ↓
-Navigate to /rfp/:id
-User clicks Assign Vendors
-   ↓
-GET /vendor/fetch-vendors
-   ↓
-POST /rfp/:id/vendors
-User clicks Send RFP
-   ↓
-POST /rfp/:id/send
-```
-
----
-
-# 🧪 **10. Test Scenarios**
-
-### ✔ Chat → Generate RFP
-
-### ✔ Save RFP
-
-### ✔ Vendor fetch works
-
-### ✔ Vendor assignment validated
-
-### ✔ Successfully send RFP
-
-### ✔ Error handling (400, missing fields)
-
----
-
-# 🧱 **11. Known Limitations (UI)**
-
-* No authentication (by assignment requirement)
-* No real-time email status
-* No pagination in vendor/RFP list yet
-
----
-
-# 🧠 **12. Decisions & Assumptions**
-
-* **React** chosen for component-driven architecture.
-* **Vite** enables fast dev reloads.
-* **TypeScript** ensures strict data model validation.
-* **Axios** used for consistent API layer.
-* **Backend must follow API contract** exactly as documented above.
-
----
-
-# 🤖 **13. AI Tools Used**
-
-| Tool    | Usage                                         |
-| ------- | --------------------------------------------- |
-| ChatGPT | API modeling, UI flow design, README creation |
-| Copilot | Code scaffolding                              |
-| Cursor  | Refactoring components                        |
-
----
-
-# 🎥 **14. Demo Video (To Be Added)**
-
-```
-📌 Add your Loom / Drive demo link here.
-```
-
----
-
-# 📝 **15. How to Run Everything Together**
-
-## Step 1: Start Backend
+Create an optimized production build:
 
 ```bash
-npm run start:dev
+npm run build
 ```
 
-## Step 2: Start Frontend
+The build output will be in the `dist/` directory.
+
+### Preview Production Build
+
+Preview the production build locally:
 
 ```bash
-npm install or npm install -f
-npm run dev
+npm run preview
 ```
 
-## Step 3: Workflow
+### Linting
 
-1. Open frontend → chat page
-2. Enter procurement description
-3. Save generated RFP
-4. Assign vendors
-5. Send RFP
-6. View status in RFP list page
+Run ESLint to check for code issues:
+
+```bash
+npm run lint
+```
+
+## 📁 Project Structure
+
+```
+ai-chat-app/
+├── public/                 # Static assets
+├── src/
+│   ├── assets/            # Images and other assets
+│   ├── components/        # React components
+│   │   ├── ChatWindow.tsx      # Chat interface for RFP generation
+│   │   ├── RfpDetail.tsx       # RFP detail page with vendor management
+│   │   ├── RfpList.tsx         # List of all RFPs
+│   │   ├── RfpModal.tsx        # Modal for displaying generated RFP
+│   │   └── ProductCards.tsx    # Product display component (legacy)
+│   ├── config/            # Configuration files
+│   │   ├── axios.ts            # Axios instance with interceptors
+│   │   └── queryClient.ts      # React Query client configuration
+│   ├── services/          # API services
+│   │   └── api.ts              # API functions and React Query hooks
+│   ├── App.tsx            # Main application component with routing
+│   ├── App.css            # Global styles
+│   ├── index.css          # Base styles
+│   └── main.tsx           # Application entry point
+├── .env                   # Environment variables (create if needed)
+├── package.json           # Dependencies and scripts
+├── tsconfig.json          # TypeScript configuration
+├── vite.config.ts         # Vite configuration
+└── README.md              # This file
+```
+
+## 🔌 API Endpoints
+
+The application integrates with the following backend API endpoints:
+
+### RFP Management
+- `POST /rfp/generate-rfp` - Generate structured RFP from natural language
+- `POST /rfp/create` - Save a new RFP
+- `GET /rfp/fetch-all-rfp` - Fetch all RFPs
+- `POST /rfp/:id/vendors` - Assign vendors to an RFP
+- `POST /rfp/:id/send` - Send RFP to vendors
+
+### Vendor Management
+- `GET /vendor/fetch-vendors` - Fetch all available vendors
+
+### Proposal Management
+- `GET /rfp/:id/proposals` - Fetch vendor proposals for an RFP
+- `GET /rfp/:id/compare` - Get AI-powered proposal comparison
+
+For detailed API documentation, see [API_DOCUMENTATION.md](./API_DOCUMENTATION.md).
+
+## 🎯 Usage Guide
+
+### Creating a New RFP
+
+1. Navigate to the home page (`/`)
+2. Click on "Create RFP" in the header navigation
+3. Enter your procurement requirements in natural language (e.g., "I need 25 desktop computers and 10 projectors...")
+4. Click "Generate RFP" or press Enter
+5. Review the generated RFP in the modal popup
+6. Click "Save RFP" to save it
+
+### Managing RFPs
+
+1. View all RFPs on the home page (`/`)
+2. Click on any RFP card to view details
+3. On the RFP detail page, you can:
+   - View RFP information and items
+   - Assign vendors
+   - Send RFP invitations
+   - View vendor proposals
+   - Compare proposals with AI recommendations
+
+### Example RFP Description
+
+```
+I need 25 desktop computers and 10 projectors for a training center. 
+Budget is $40,000. Delivery in 45 days. Payment terms: net 45. 
+Warranty: at least 2 years.
+```
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+#### 1. **Application won't start / Node.js version error**
+
+**Error**: `TypeError: crypto.hash is not a function` or Node.js version warnings
+
+**Solution**: Ensure you're using Node.js 18.x or higher. The project is configured for Node.js 18.19.0+.
+
+```bash
+node --version  # Should show v18.x.x or higher
+```
+
+#### 2. **API connection errors**
+
+**Error**: Network errors or "Failed to fetch" messages
+
+**Solution**: 
+- Ensure the backend API is running on `http://localhost:8080`
+- Check your `.env` file if you've customized the API URL
+- Verify CORS settings on the backend
+
+#### 3. **Port already in use**
+
+**Error**: `Port 5173 is already in use`
+
+**Solution**: Vite will automatically use the next available port, or you can specify a port:
+
+```bash
+npm run dev -- --port 3000
+```
+
+#### 4. **Build errors**
+
+**Error**: TypeScript or build errors
+
+**Solution**:
+- Run `npm run lint` to check for code issues
+- Ensure all dependencies are installed: `npm install`
+- Clear node_modules and reinstall: `rm -rf node_modules package-lock.json && npm install`
+
+#### 5. **Blank screen after generating RFP**
+
+**Solution**: This was fixed in the latest version. Ensure you're using the latest code with proper null handling for RFP fields.
+
+## 🔧 Development Guidelines
+
+### Code Style
+
+- Use TypeScript for all new files
+- Follow React best practices and hooks patterns
+- Use functional components with hooks
+- Maintain consistent naming conventions (PascalCase for components, camelCase for functions)
+
+### Adding New Features
+
+1. Create components in `src/components/`
+2. Add API functions in `src/services/api.ts`
+3. Use React Query hooks for data fetching
+4. Follow the existing component structure and styling patterns
+
+### Styling
+
+- Use Ant Design components where possible
+- Custom styles in `App.css` for component-specific styling
+- Maintain consistent color scheme: Primary blue `#2563eb`
+- Use Inter font family for typography
+
+## 📝 Scripts Reference
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Run ESLint |
+
+## 🔐 Security Notes
+
+- Authentication tokens are stored in `localStorage` (not recommended for production)
+- For production, consider using secure HTTP-only cookies
+- Always validate and sanitize user inputs
+- Implement proper CORS policies on the backend
+
+## 🤝 Contributing
+
+1. Follow the existing code structure and patterns
+2. Write clear commit messages
+3. Test your changes thoroughly
+4. Ensure TypeScript compilation passes: `npm run build`
+
+## 📄 License
+
+This project is private and proprietary.
+
+## 📞 Support
+
+For issues or questions:
+- Check the [API_DOCUMENTATION.md](./API_DOCUMENTATION.md) for API details
+- Review the troubleshooting section above
+- Check browser console for error messages
+
+## 🎉 Getting Started Checklist
+
+- [ ] Node.js 18.x+ installed
+- [ ] Dependencies installed (`npm install`)
+- [ ] Backend API running on `http://localhost:8080`
+- [ ] Development server started (`npm run dev`)
+- [ ] Application accessible at `http://localhost:5173`
 
 ---
 
-
+**Built with ❤️ using React, TypeScript, and Ant Design**
