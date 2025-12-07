@@ -1,7 +1,8 @@
 import { Modal, Typography, Descriptions, Table, Button, Tag, message } from 'antd';
 import { SaveOutlined } from '@ant-design/icons';
 import { useCreateRfp } from '../services/api';
-import type { GenerateRFPResponse } from '../services/api';
+import type { GenerateRFPResponse } from '../services/interface.service';
+
 
 const { Title, Text } = Typography;
 
