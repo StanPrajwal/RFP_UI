@@ -272,19 +272,6 @@ npm run dev -- --port 3000
 - Always validate and sanitize user inputs
 - Implement proper CORS policies on the backend
 
-## 🤝 Contributing
-
-1. Follow the existing code structure and patterns
-2. Write clear commit messages
-3. Test your changes thoroughly
-4. Ensure TypeScript compilation passes: `npm run build`
-
-## 📄 License
-
-This project is private and proprietary.
-
-## 📞 Support
-
 For issues or questions:
 - Check the [API_DOCUMENTATION.md](./API_DOCUMENTATION.md) for API details
 - Review the troubleshooting section above
